@@ -1,0 +1,20 @@
+{
+  "name": "fabrica-de-projetos-com-ia",
+  "owner": {
+    "name": "Fábrica de Projetos com IA"
+  },
+  "metadata": {
+    "description": "Marketplace do pacote Fábrica de Projetos com IA — ferramentas prontas do Claude Code para pequenos negócios.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "fabrica-pme",
+      "source": "./fabrica-pme",
+      "description": "12 skills comerciais, 6 subagents especialistas, 8 hooks de segurança e MCPs recomendados para criar projetos reais para pequenos negócios — sem saber programar.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": ["pme", "negócios", "landing-page", "crm", "dashboard", "marketing", "no-code"]
+    }
+  ]
+}

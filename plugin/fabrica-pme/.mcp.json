@@ -1,0 +1,4 @@
+{
+  "_LEIA": "Este arquivo começa VAZIO de propósito, para não tentar conectar serviços que precisam de chave logo na instalação. Para ativar um MCP (GitHub, Supabase, Planilhas, Pagamentos, etc.), copie o bloco correspondente de MCP-RECOMENDADOS.md para dentro de mcpServers abaixo. Veja o passo a passo nesse arquivo.",
+  "mcpServers": {}
+}

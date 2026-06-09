@@ -1,0 +1,10 @@
+{
+  "name": "fabrica-pme",
+  "version": "1.0.0",
+  "description": "Ferramentas prontas do Claude Code para criar projetos reais para pequenos negócios: landing pages, CRMs, dashboards, automações e marketing — sem saber programar.",
+  "author": {
+    "name": "Fábrica de Projetos com IA"
+  },
+  "keywords": ["pme", "negócios", "landing-page", "crm", "dashboard", "marketing", "no-code", "automação"],
+  "license": "Proprietary"
+}
