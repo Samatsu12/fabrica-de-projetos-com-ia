@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit 10 Prompts Prontos — Fábrica de Projetos com IA</title>
+  <meta name="description" content="Baixe grátis o kit com 10 prompts prontos para criar projetos com IA — do briefing à entrega ao cliente, sem precisar saber programar.">
+  <meta property="og:title" content="Kit 10 Prompts Prontos — Fábrica de Projetos com IA">
+  <meta property="og:description" content="Do briefing à entrega ao cliente, sem programar.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap"
+        media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
+  </noscript>
+
+  <style>
+    :root {
+      --paper:    #f1e9da;
+      --paper-2:  #e7dcc8;
+      --card:     #faf5ea;
+      --ink:      #19150f;
+      --ink-2:    #3d3727;
+      --ink-m:    #6b6152;
+      --accent:   #d8402a;
+      --accent-d: #b8321e;
+      --border:   #c8bfae;
+      --ff-d: 'Fraunces', Georgia, serif;
+      --ff-b: 'Public Sans', system-ui, sans-serif;
+      --ff-m: 'JetBrains Mono', monospace;
+      --r: 6px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-b);
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+    }
+
+    /* Topo */
+    .topo {
+      padding: 1.15rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .topo__marca {
+      text-decoration: none;
+      color: var(--ink);
+      font-family: var(--ff-m);
+      font-size: .72rem;
+      letter-spacing: .07em;
+      white-space: nowrap;
+    }
+    .topo__mono  { color: var(--accent); font-weight: 700; }
+    .topo__sep   { color: var(--border); margin: 0 .3rem; }
+    .topo__rest  { color: var(--ink-m); }
+    .topo__tag {
+      font-family: var(--ff-m);
+      font-size: .65rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-m);
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      padding: .25rem .75rem;
+      white-space: nowrap;
+    }
+
+    /* Main / Herói */
+    main { flex: 1; display: flex; align-items: stretch; }
+
+    .heroi {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem;
+      gap: 4rem;
+      align-items: center;
+    }
+    .heroi__conteudo { max-width: 500px; }
+
+    .kicker {
+      font-family: var(--ff-m);
+      font-size: .68rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+    .kicker::before {
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .titulo {
+      font-family: var(--ff-d);
+      font-size: clamp(1.9rem, 4.5vw, 2.85rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .titulo em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .valor {
+      list-style: none;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .valor li {
+      font-size: .92rem;
+      color: var(--ink-2);
+      line-height: 1.45;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .valor li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .8rem;
+      top: .05em;
+    }
+
+    /* Formulário */
+    .formulario-wrap { display: flex; flex-direction: column; gap: .9rem; }
+    .formulario {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .campo-grupo { display: flex; flex-direction: column; gap: .35rem; }
+    .campo-grupo label { font-size: .83rem; font-weight: 600; color: var(--ink); }
+    .campo-grupo input {
+      font-family: var(--ff-b);
+      font-size: .93rem;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: .75rem 1rem;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+      width: 100%;
+    }
+    .campo-grupo input::placeholder { color: #a89e8e; }
+    .campo-grupo input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(216,64,42,.11);
+    }
+    .campo-grupo input.erro {
+      border-color: var(--accent);
+      background: rgba(216,64,42,.04);
+    }
+
+    .btn-principal {
+      font-family: var(--ff-d);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--paper);
+      background: var(--accent);
+      border: none;
+      border-radius: var(--r);
+      padding: .9rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      text-decoration: none;
+      transition: background .15s, transform .1s, box-shadow .15s;
+      box-shadow: 0 2px 8px rgba(216,64,42,.25);
+    }
+    .btn-principal:hover { background: var(--accent-d); box-shadow: 0 4px 16px rgba(216,64,42,.3); }
+    .btn-principal:active { transform: scale(.98); }
+    .btn-principal--sec { background: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+    .btn-principal--sec:hover { background: var(--ink-2); }
+    .btn-seta { transition: transform .2s; }
+    .btn-principal:hover .btn-seta { transform: translateX(4px); }
+
+    .privacidade { font-size: .76rem; color: var(--ink-m); text-align: center; line-height: 1.5; }
+
+    .sucesso {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 2rem 1.65rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .85rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .sucesso[hidden] { display: none; }
+    .sucesso__icone { font-size: 2.75rem; line-height: 1; }
+    .sucesso__titulo { font-family: var(--ff-d); font-size: 1.9rem; font-weight: 700; color: var(--ink); }
+    .sucesso__msg { font-size: .92rem; color: var(--ink-2); line-height: 1.55; }
+
+    /* Mockup */
+    .heroi__visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.25rem;
+    }
+    .mockup-cena {
+      position: relative;
+      width: 260px;
+      height: calc(260px * 1.414);
+    }
+    .mockup-sombra {
+      position: absolute;
+      inset: 0;
+      background: var(--paper-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transform: rotate(-3.5deg) translate(10px, 10px);
+      box-shadow: 0 2px 4px rgba(0,0,0,.07), 0 8px 24px rgba(0,0,0,.13), 0 24px 64px rgba(0,0,0,.15);
+      z-index: 0;
+    }
+    .mockup-doc {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,.07), 0 8px 24px rgba(0,0,0,.13), 0 24px 64px rgba(0,0,0,.15);
+      padding: 1.5rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      transform: rotate(1.5deg);
+      transform-origin: center bottom;
+      animation: flutuaDoc 8s ease-in-out infinite;
+    }
+    @keyframes flutuaDoc {
+      0%,100% { transform: rotate(1.5deg) translateY(0);    }
+      50%      { transform: rotate(1.5deg) translateY(-9px); }
+    }
+    @media (prefers-reduced-motion: reduce) { .mockup-doc { animation: none; } }
+
+    .mockup-topo {
+      display: flex;
+      flex-direction: column;
+      gap: .2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .65rem;
+      margin-bottom: 1rem;
+    }
+    .mockup-mono { font-family: var(--ff-m); font-size: .48rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-m); }
+    .mockup-badge { font-family: var(--ff-m); font-size: .42rem; text-transform: uppercase; letter-spacing: .06em; color: var(--border); }
+
+    .mockup-corpo { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: .75rem 0; gap: .1rem; }
+    .mockup-num { font-family: var(--ff-d); font-size: 5.5rem; font-weight: 800; color: var(--accent); line-height: .8; letter-spacing: -.04em; }
+    .mockup-subtitulo { font-family: var(--ff-d); line-height: 1.15; }
+    .mockup-subtitulo strong { display: block; font-size: 1.3rem; font-weight: 700; color: var(--ink); }
+    .mockup-subtitulo em { display: block; font-style: italic; font-size: .95rem; color: var(--ink-m); }
+
+    .mockup-divisor { height: 3px; width: 38%; background: var(--accent); border-radius: 2px; margin: .5rem 0; }
+    .mockup-descricao { font-family: var(--ff-b); font-size: .55rem; color: var(--ink-m); line-height: 1.45; border-top: 1px solid var(--border); padding-top: .65rem; margin-top: auto; }
+
+    .prova { text-align: center; }
+    .prova__num { font-family: var(--ff-d); font-size: 2rem; font-weight: 800; color: var(--ink); line-height: 1; }
+    .prova__texto { font-size: .82rem; color: var(--ink-m); font-style: italic; }
+
+    /* Rodapé */
+    .rodape { padding: 1.15rem 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .rodape p { font-size: .76rem; color: var(--ink-m); }
+    .rodape a { color: var(--ink-m); text-decoration: underline; text-underline-offset: 2px; }
+    .rodape a:hover { color: var(--ink); }
+
+    /* Responsivo */
+    @media (max-width: 860px) {
+      .heroi { grid-template-columns: 1fr; padding: 2.5rem 1.25rem 3.5rem; gap: 3rem; }
+      .heroi__conteudo { max-width: 100%; order: 2; }
+      .heroi__visual { order: 1; gap: 1.5rem; }
+      .mockup-cena { width: 200px; height: calc(200px * 1.414); }
+      .mockup-num { font-size: 4.5rem; }
+      .mockup-subtitulo strong { font-size: 1.05rem; }
+      .mockup-subtitulo em { font-size: .8rem; }
+    }
+    @media (max-width: 480px) {
+      .topo { padding: 1rem 1.25rem; }
+      .topo__tag { display: none; }
+      .titulo { font-size: 1.85rem; }
+      .formulario { padding: 1.25rem; }
+      .btn-principal { font-size: .95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topo">
+    <a href="/" class="topo__marca">
+      <span class="topo__mono">fabrica</span><span class="topo__sep">·</span><span class="topo__rest">projetos com ia</span>
+    </a>
+    <p class="topo__tag">Material gratuito</p>
+  </header>
+
+  <main>
+    <section class="heroi">
+
+      <!-- Coluna esquerda: copy + formulário -->
+      <div class="heroi__conteudo">
+        <p class="kicker">Baixe agora, grátis</p>
+
+        <h1 class="titulo">
+          Kit 10 Prompts Prontos<br>
+          <em>do briefing à entrega<br>ao cliente</em>
+        </h1>
+
+        <ul class="valor">
+          <li>Planejamento, criação e refinamento em 3 fases</li>
+          <li>5 tipos de projeto prontos: landing, catálogo, orçamento, CRM, dashboard</li>
+          <li>Sem precisar saber programar</li>
+        </ul>
+
+        <!-- Estado padrão: formulário -->
+        <div class="formulario-wrap" id="estado-form">
+          <form class="formulario" id="form-captura" novalidate>
+            <div class="campo-grupo">
+              <label for="nome">Como você se chama?</label>
+              <input type="text" id="nome" name="nome"
+                     autocomplete="given-name"
+                     placeholder="Seu primeiro nome" required>
+            </div>
+            <div class="campo-grupo">
+              <label for="email">Seu melhor e-mail</label>
+              <input type="email" id="email" name="email"
+                     autocomplete="email"
+                     placeholder="voce@email.com.br" required>
+            </div>
+            <button type="submit" class="btn-principal">
+              Quero os 10 prompts grátis
+              <span class="btn-seta" aria-hidden="true">→</span>
+            </button>
+          </form>
+          <p class="privacidade">
+            Sem spam, nunca. Cancelamento em um clique.
+          </p>
+        </div>
+
+        <!-- Estado de sucesso (oculto até envio) -->
+        <div class="sucesso" id="estado-sucesso" hidden>
+          <div class="sucesso__icone" aria-hidden="true">✉</div>
+          <h2 class="sucesso__titulo">Enviado!</h2>
+          <p class="sucesso__msg">
+            Verifique sua caixa de entrada — e o spam, só por garantia.
+          </p>
+          <a href="/10-prompts.html"
+             class="btn-principal btn-principal--sec" target="_blank">
+            Abrir o kit agora →
+          </a>
+          <p class="privacidade">
+            (Em produção o link chega por e-mail, não fica exposto na página)
+          </p>
+        </div>
+      </div>
+
+      <!-- Coluna direita: mockup CSS do documento -->
+      <div class="heroi__visual" aria-hidden="true">
+        <div class="mockup-cena">
+          <div class="mockup-sombra"></div>
+          <div class="mockup-doc">
+            <div class="mockup-topo">
+              <span class="mockup-mono">FÁBRICA DE PROJETOS COM IA</span>
+              <span class="mockup-badge">Gratuito · v1.0</span>
+            </div>
+            <div class="mockup-corpo">
+              <div class="mockup-num">10</div>
+              <div class="mockup-subtitulo">
+                <strong>Prompts</strong>
+                <em>Prontos</em>
+              </div>
+            </div>
+            <div class="mockup-divisor"></div>
+            <p class="mockup-descricao">
+              Do briefing à entrega<br>ao cliente com IA
+            </p>
+          </div>
+        </div>
+
+        <div class="prova" aria-label="Prova social">
+          <p class="prova__num">+1.200</p>
+          <p class="prova__texto">pessoas já baixaram</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>
+      <a href="/">fabricadeprojetos.com.br</a>
+      &nbsp;·&nbsp;
+      <a href="#">Política de privacidade</a>
+      &nbsp;·&nbsp;
+      Seus dados não são compartilhados.
+    </p>
+  </footer>
+
+  <script>
+    const form      = document.getElementById('form-captura');
+    const estadoFrm = document.getElementById('estado-form');
+    const estadoOk  = document.getElementById('estado-sucesso');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nome  = form.nome.value.trim();
+      const email = form.email.value.trim();
+
+      let valido = true;
+      [form.nome, form.email].forEach(campo => {
+        const vazio    = !campo.value.trim();
+        const emailInv = campo.type === 'email' && !campo.value.includes('@');
+        if (vazio || emailInv) { campo.classList.add('erro'); valido = false; }
+      });
+      if (!valido) return;
+
+      // ─── INTEGRAÇÃO ESP ───────────────────────────────────────────────
+      // Substitua este bloco pela chamada real ao seu serviço de e-mail.
+      //
+      //   • Formspree (mais simples, sem backend):
+      //     fetch('https://formspree.io/f/SEU_ID', {
+      //       method: 'POST',
+      //       headers: { 'Content-Type': 'application/json' },
+      //       body: JSON.stringify({ nome, email })
+      //     });
+      //
+      //   • MailerLite:
+      //     fetch('https://connect.mailerlite.com/api/subscribers', {
+      //       method: 'POST',
+      //       headers: { 'Content-Type': 'application/json',
+      //                  'Authorization': 'Bearer SUA_CHAVE' },
+      //       body: JSON.stringify({ email, fields: { name: nome },
+      //                              groups: ['ID_DO_GRUPO'] })
+      //     });
+      // ─────────────────────────────────────────────────────────────────
+
+      console.log('Lead capturado:', { nome, email }); // remover em produção
+
+      estadoFrm.hidden = true;
+      estadoOk.hidden  = false;
+    });
+
+    form.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', () => input.classList.remove('erro'));
+    });
+  </script>
+</body>
+</html>

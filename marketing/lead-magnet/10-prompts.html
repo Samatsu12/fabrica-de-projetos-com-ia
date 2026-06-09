@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Prompts Prontos — Fábrica de Projetos com IA</title>
+  <!--
+    LEAD MAGNET — Fábrica de Projetos com IA
+    Kit de 10 Prompts Prontos para Criar Projetos com IA
+    Para gerar o PDF: abra no navegador → Ctrl+P (ou Cmd+P) → Salvar como PDF
+    Configuração de impressão: A4, sem cabeçalhos/rodapés do navegador, margens mínimas
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+  </noscript>
+
+  <style>
+    /* ── Tokens ──────────────────────────────────────────────── */
+    :root {
+      --paper:   #f1e9da;
+      --paper-2: #e7dcc8;
+      --card:    #faf5ea;
+      --ink:     #19150f;
+      --ink-m:   #4a4440;
+      --ink-l:   #8a8078;
+      --accent:  #d8402a;
+      --blue:    #2b4a6f;
+      --serif:   'Fraunces', Georgia, serif;
+      --sans:    'Public Sans', system-ui, sans-serif;
+      --mono:    'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 1rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Página ──────────────────────────────────────────────── */
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 4rem;
+    }
+
+    /* ── Cabeçalho ───────────────────────────────────────────── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.25rem;
+      margin-bottom: 3rem;
+      border-bottom: 2px solid var(--ink);
+    }
+    .header__brand {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      font-family: var(--mono);
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .header__bolt { width: 1rem; height: 1rem; color: var(--accent); flex-shrink: 0; }
+    .header__code {
+      font-family: var(--mono);
+      font-size: .62rem;
+      color: var(--ink-l);
+      letter-spacing: .06em;
+    }
+
+    /* ── Título principal ────────────────────────────────────── */
+    .hero { margin-bottom: 2.25rem; }
+    .hero__kicker {
+      font-family: var(--mono);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--accent);
+      margin-bottom: .85rem;
+    }
+    .hero__title {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 6vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      margin-bottom: .85rem;
+    }
+    .hero__title em {
+      font-style: italic;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .hero__sub {
+      font-size: 1rem;
+      color: var(--ink-m);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    /* ── Caixa de contexto ───────────────────────────────────── */
+    .context-box {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 1.4rem 1.75rem;
+      border-radius: 4px;
+      margin-bottom: 2.75rem;
+      font-size: .95rem;
+      line-height: 1.7;
+    }
+    .context-box strong { color: #f5c060; }
+
+    /* ── Como usar ───────────────────────────────────────────── */
+    .how-to {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.75rem;
+      flex-wrap: wrap;
+    }
+    .how-to__step {
+      flex: 1;
+      min-width: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+    }
+    .how-to__num {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .how-to__text {
+      font-size: .82rem;
+      color: var(--ink-m);
+      line-height: 1.55;
+    }
+    .how-to__text strong { color: var(--ink); }
+
+    /* ── Separador de seção ──────────────────────────────────── */
+    .secao-header {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      margin: 3rem 0 1.75rem;
+    }
+    .secao-header::after {
+      content: '';
+      flex: 1;
+      height: 1.5px;
+      background: var(--paper-2);
+    }
+    .secao-header__num {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .secao-header__label {
+      font-family: var(--mono);
+      font-size: .64rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--ink-l);
+      flex-shrink: 0;
+    }
+    .secao-header__titulo {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    /* ── Chips de projeto ────────────────────────────────────── */
+    .secao-chips {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin: -.5rem 0 1.75rem;
+    }
+    .chip {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink-m);
+      background: rgba(25,21,15,.06);
+      border: 1px solid var(--paper-2);
+      border-radius: 2px;
+      padding: .25em .6em;
+    }
+
+    /* ── Cards de prompt ─────────────────────────────────────── */
+    .prompt-card {
+      background: var(--card);
+      border: 1.5px solid var(--paper-2);
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .prompt-card__top {
+      display: flex;
+      align-items: baseline;
+      gap: 1.1rem;
+      padding: 1.4rem 1.75rem .2rem;
+    }
+    .prompt-card__num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+      user-select: none;
+      opacity: .9;
+    }
+    .prompt-card__meta { flex: 1; }
+    .prompt-card__title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: .2rem;
+    }
+    .prompt-card__when {
+      font-size: .78rem;
+      color: var(--ink-m);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .prompt-card__body { padding: 1rem 1.75rem 1.4rem; }
+
+    .prompt-text {
+      background: var(--paper-2);
+      border-left: 3.5px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      padding: 1rem 1.4rem;
+      font-family: var(--mono);
+      font-size: .78rem;
+      line-height: 1.85;
+      color: var(--ink);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .prompt-text .campo {
+      background: rgba(216,64,42,.13);
+      color: var(--accent);
+      border-radius: 2px;
+      padding: .05em .2em;
+      font-weight: 600;
+    }
+
+    .tip {
+      display: flex;
+      gap: .7rem;
+      align-items: flex-start;
+      margin-top: .9rem;
+      padding: .7rem .95rem;
+      background: rgba(43,74,111,.07);
+      border-radius: 4px;
+      font-size: .8rem;
+      color: var(--blue);
+      line-height: 1.6;
+    }
+    .tip svg { width: 1em; height: 1em; flex-shrink: 0; margin-top: .15em; fill: var(--blue); }
+
+    /* ── Grade 2 colunas (projetos 03-07) ────────────────────── */
+    .prompt-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .prompt-2col .prompt-card {
+      margin-bottom: 0;
+    }
+    .prompt-2col .prompt-card__num {
+      font-size: 1.85rem;
+    }
+    .prompt-2col .prompt-card__top {
+      padding: 1.2rem 1.4rem .15rem;
+    }
+    .prompt-2col .prompt-card__body {
+      padding: .85rem 1.4rem 1.2rem;
+    }
+    .prompt-2col .prompt-text {
+      font-size: .72rem;
+      line-height: 1.75;
+    }
+
+    /* ── CTA final ───────────────────────────────────────────── */
+    .cta-box {
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 6px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .cta-box h2 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: .35rem;
+    }
+    .cta-box h2 em { font-style: italic; color: #f5c060; }
+    .cta-box p { font-size: .875rem; color: rgba(241,233,218,.7); line-height: 1.6; }
+    .cta-box__link {
+      font-family: var(--mono);
+      font-size: .78rem;
+      font-weight: 600;
+      color: #f5c060;
+      white-space: nowrap;
+      text-decoration: underline;
+    }
+
+    /* ── Rodapé ──────────────────────────────────────────────── */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--paper-2);
+      font-family: var(--mono);
+      font-size: .62rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink-l);
+    }
+
+    /* ── Print ───────────────────────────────────────────────── */
+    @media print {
+      @page { size: A4; margin: 16mm 20mm; }
+
+      body { background: white; font-size: .88rem; }
+      .page { padding: 0; max-width: 100%; }
+      .hero__title { font-size: 2.6rem; }
+
+      .prompt-card, .cta-box {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .secao-header { page-break-before: auto; }
+      .prompt-2col { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── Mobile ──────────────────────────────────────────────── */
+    @media (max-width: 620px) {
+      .page { padding: 2rem 1.25rem 3rem; }
+      .how-to { flex-direction: column; gap: 1rem; }
+      .prompt-2col { grid-template-columns: 1fr; }
+      .cta-box { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Cabeçalho ──────────────────────────────────────────── -->
+  <header class="header">
+    <div class="header__brand">
+      <svg class="header__bolt" viewBox="0 0 20 24" fill="none" aria-hidden="true">
+        <path d="M11 2L2 13h7l-1 9 10-11h-7l1-9z" fill="currentColor"/>
+      </svg>
+      Fábrica de Projetos com IA
+    </div>
+    <span class="header__code">Material gratuito · v1.0</span>
+  </header>
+
+  <!-- ── Herói ──────────────────────────────────────────────── -->
+  <div class="hero">
+    <p class="hero__kicker">Kit digital · 10 prompts prontos</p>
+    <h1 class="hero__title">
+      10 Prompts Prontos<br>
+      para criar qualquer<br>
+      <em>projeto com IA</em>
+    </h1>
+    <p class="hero__sub">
+      Copie, ajuste os campos <code style="font-family:var(--mono);font-size:.85em;color:var(--accent);">[entre colchetes]</code>
+      e cole no Claude Code. Cobrimos o ciclo completo: da ideia bagunçada à entrega
+      para o cliente — sem saber programar.
+    </p>
+  </div>
+
+  <!-- ── Contexto ───────────────────────────────────────────── -->
+  <div class="context-box">
+    A maioria das pessoas que tenta usar IA para criar coisas trava no mesmo ponto:
+    <strong>não sabe como pedir.</strong> Estes 10 prompts resolvem exatamente isso.
+    Estão divididos em três fases — <strong>planejar, criar e refinar</strong> — para
+    que você saia com um projeto real, pronto para usar ou vender.
+  </div>
+
+  <!-- ── Como usar ──────────────────────────────────────────── -->
+  <div class="how-to" aria-label="Como usar">
+    <div class="how-to__step">
+      <span class="how-to__num">1</span>
+      <p class="how-to__text"><strong>Abra o Claude Code</strong> no terminal ou no editor.</p>
+    </div>
+    <div class="how-to__step">
+      <span class="how-to__num">2</span>
+      <p class="how-to__text"><strong>Copie o prompt</strong> e preencha os campos em destaque.</p>
+    </div>
+    <div class="how-to__step">
+      <span class="how-to__num">3</span>
+      <p class="how-to__text"><strong>Cole e envie.</strong> Leia antes de aprovar o próximo passo.</p>
+    </div>
+    <div class="how-to__step">
+      <span class="how-to__num">4</span>
+      <p class="how-to__text"><strong>Siga a ordem</strong> da fase 1 para a 3. Pule etapas, pague com retrabalho.</p>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FASE 1 — PLANEJAMENTO
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="secao-header" aria-hidden="true">
+    <span class="secao-header__num">I</span>
+    <span class="secao-header__label">Fase 1</span>
+    <span class="secao-header__titulo">Planejamento</span>
+  </div>
+  <div class="secao-chips">
+    <span class="chip">antes de criar qualquer arquivo</span>
+    <span class="chip">2 prompts</span>
+  </div>
+
+  <!-- Prompt 01 -->
+  <div class="prompt-card">
+    <div class="prompt-card__top">
+      <span class="prompt-card__num" aria-hidden="true">01</span>
+      <div class="prompt-card__meta">
+        <h2 class="prompt-card__title">Da ideia ao briefing</h2>
+        <p class="prompt-card__when">Quando usar: antes de tudo — transforma ideia vaga em plano claro e acionável.</p>
+      </div>
+    </div>
+    <div class="prompt-card__body">
+      <div class="prompt-text">Tenho uma ideia de projeto para criar com IA.
+Ela está na minha cabeça, mas preciso organizá-la.
+
+Minha ideia: <span class="campo">[descreva em uma ou duas frases]</span>
+Meu negócio: <span class="campo">[o que você faz / para quem]</span>
+Quem vai usar: <span class="campo">[cliente final, funcionário, eu mesmo...]</span>
+
+Crie um briefing com:
+1. O problema real que isso resolve.
+2. O que a primeira versão precisa ter (só o essencial).
+3. O que pode ficar para depois.
+4. Qual tecnologia simples usar.
+5. Um nome para o projeto.
+
+Seja direto. Sem jargão técnico.</div>
+      <div class="tip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span><strong>Dica:</strong> quanto mais específica a ideia, melhor o briefing. "Quero um site" é vago. "Quero uma página para minha clínica de estética com botão de WhatsApp e lista de serviços" é excelente.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prompt 02 -->
+  <div class="prompt-card">
+    <div class="prompt-card__top">
+      <span class="prompt-card__num" aria-hidden="true">02</span>
+      <div class="prompt-card__meta">
+        <h2 class="prompt-card__title">Briefing completo para o Claude Code</h2>
+        <p class="prompt-card__when">Quando usar: depois do briefing — transforma o plano em especificação técnica sem você precisar saber programar.</p>
+      </div>
+    </div>
+    <div class="prompt-card__body">
+      <div class="prompt-text">Leia este briefing e me faça até 3 perguntas para entender melhor
+o projeto antes de começarmos.
+
+Briefing: <span class="campo">[cole o resultado do Prompt 01]</span>
+
+Depois que eu responder, monte o plano de execução:
+- Lista de telas ou arquivos que vamos criar.
+- O que cada um faz.
+- Uma coisa depende da outra? Em que ordem.
+- Tecnologias e por quê essa escolha.
+- O que NÃO vamos fazer nesta versão.
+
+Só comece quando eu confirmar o plano.</div>
+      <div class="tip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span><strong>Dica:</strong> não pule a aprovação do plano. É aqui que você evita retrabalho — muito mais fácil mudar o plano do que refazer o código depois.</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FASE 2 — PROJETOS
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="secao-header" aria-hidden="true">
+    <span class="secao-header__num">II</span>
+    <span class="secao-header__label">Fase 2</span>
+    <span class="secao-header__titulo">Projetos prontos para usar</span>
+  </div>
+  <div class="secao-chips">
+    <span class="chip">5 tipos de projeto</span>
+    <span class="chip">copie o prompt do seu caso</span>
+    <span class="chip">sem servidor</span>
+  </div>
+
+  <!-- Prompt 03 — Layout completo (1 coluna) -->
+  <div class="prompt-card">
+    <div class="prompt-card__top">
+      <span class="prompt-card__num" aria-hidden="true">03</span>
+      <div class="prompt-card__meta">
+        <h2 class="prompt-card__title">Landing page para prestador de serviço</h2>
+        <p class="prompt-card__when">Quando usar: para criar uma página profissional de apresentação do negócio com CTA de contato.</p>
+      </div>
+    </div>
+    <div class="prompt-card__body">
+      <div class="prompt-text">Crie uma landing page profissional para meu negócio.
+
+Negócio: <span class="campo">[o que você faz]</span>
+Público-alvo: <span class="campo">[descreva em 1 frase]</span>
+Ação principal: <span class="campo">[ex: WhatsApp, formulário, agendamento]</span>
+Serviços: <span class="campo">[liste os 3–5 principais]</span>
+Diferenciais: <span class="campo">[o que te separa da concorrência]</span>
+Estilo visual: <span class="campo">[ex: clean e moderno / sóbrio e profissional]</span>
+
+Crie: index.html + styles.css
+- Seções: hero, serviços, diferenciais, depoimentos (placeholder), CTA.
+- Mobile-first. Botão de WhatsApp fixo. Sem frameworks externos.</div>
+      <div class="tip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span><strong>Dica:</strong> para publicar sem custo, use o <strong>Netlify Drop</strong>: netlify.com/drop — arraste a pasta com os arquivos e você já tem um link funcional em segundos.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prompts 04 e 05 — 2 colunas -->
+  <div class="prompt-2col">
+
+    <!-- Prompt 04 -->
+    <div class="prompt-card">
+      <div class="prompt-card__top">
+        <span class="prompt-card__num" aria-hidden="true">04</span>
+        <div class="prompt-card__meta">
+          <h2 class="prompt-card__title">Catálogo digital de produtos</h2>
+          <p class="prompt-card__when">Para negócios com produtos físicos ou serviços tabelados.</p>
+        </div>
+      </div>
+      <div class="prompt-card__body">
+        <div class="prompt-text">Crie um catálogo digital de produtos.
+
+Negócio: <span class="campo">[o que você vende]</span>
+Produtos: <span class="campo">[lista com nome,
+preço e descrição curta]</span>
+Ação: <span class="campo">[botão WhatsApp
+ou formulário de pedido]</span>
+Filtro/categoria: <span class="campo">[sim ou não]</span>
+
+Crie: index.html + styles.css + app.js
+- Grid de cards responsivo.
+- Foto placeholder em cada card.
+- Nome, preço, descrição, botão.
+- Sem banco de dados —
+  produtos no próprio JavaScript.</div>
+      </div>
+    </div>
+
+    <!-- Prompt 05 -->
+    <div class="prompt-card">
+      <div class="prompt-card__top">
+        <span class="prompt-card__num" aria-hidden="true">05</span>
+        <div class="prompt-card__meta">
+          <h2 class="prompt-card__title">Gerador de orçamento online</h2>
+          <p class="prompt-card__when">Para prestadores que vendem serviços com preço variável.</p>
+        </div>
+      </div>
+      <div class="prompt-card__body">
+        <div class="prompt-text">Crie uma calculadora de orçamento.
+
+Serviços: <span class="campo">[liste com preço base]</span>
+Variáveis: <span class="campo">[o que muda o preço:
+área, prazo, complexidade...]</span>
+Destino: <span class="campo">[WhatsApp ou e-mail]</span>
+Visual: <span class="campo">[simples / mais elaborado]</span>
+
+Crie: index.html + styles.css + app.js
+- Formulário com seleção de serviços.
+- Cálculo automático em tempo real.
+- Botão "Solicitar orçamento"
+  que envia para WhatsApp.
+- Sem servidor — tudo no front.</div>
+      </div>
+    </div>
+
+  </div><!-- /prompt-2col -->
+
+  <!-- Prompts 06 e 07 — 2 colunas -->
+  <div class="prompt-2col">
+
+    <!-- Prompt 06 -->
+    <div class="prompt-card">
+      <div class="prompt-card__top">
+        <span class="prompt-card__num" aria-hidden="true">06</span>
+        <div class="prompt-card__meta">
+          <h2 class="prompt-card__title">CRM simples de contatos</h2>
+          <p class="prompt-card__when">Para quem precisa de controle de clientes sem pagar software.</p>
+        </div>
+      </div>
+      <div class="prompt-card__body">
+        <div class="prompt-text">Crie um CRM simples de clientes.
+
+O que registrar: nome, telefone,
+serviço, status, próximo contato.
+Status: <span class="campo">[Interessado /
+Negociando / Cliente / Inativo]</span>
+Usuários: <span class="campo">[só eu / mais pessoas]</span>
+Login: <span class="campo">[sim ou não]</span>
+
+Crie: index.html + styles.css + app.js
+- Tabela com busca e filtro.
+- Formulário para adicionar contato.
+- Dados no localStorage.
+- Exportar para CSV.</div>
+      </div>
+    </div>
+
+    <!-- Prompt 07 -->
+    <div class="prompt-card">
+      <div class="prompt-card__top">
+        <span class="prompt-card__num" aria-hidden="true">07</span>
+        <div class="prompt-card__meta">
+          <h2 class="prompt-card__title">Dashboard com planilha CSV</h2>
+          <p class="prompt-card__when">Para transformar qualquer planilha em painel visual de análise.</p>
+        </div>
+      </div>
+      <div class="prompt-card__body">
+        <div class="prompt-text">Crie um dashboard que lê CSV.
+
+Colunas do meu CSV: <span class="campo">[liste
+as colunas exatas, ex: data,
+vendedor, produto, valor, status]</span>
+Quero ver: <span class="campo">[total por mês,
+ranking, comparativo...]</span>
+Quantos gráficos: <span class="campo">[2 a 4]</span>
+
+Crie: index.html + styles.css + app.js
+- Upload de CSV com drag & drop.
+- Cards de resumo no topo.
+- Gráficos (Chart.js via CDN).
+- Tabela de dados com filtro.
+- Sem servidor.</div>
+      </div>
+    </div>
+
+  </div><!-- /prompt-2col -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FASE 3 — REFINAR E ENTREGAR
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="secao-header" aria-hidden="true">
+    <span class="secao-header__num">III</span>
+    <span class="secao-header__label">Fase 3</span>
+    <span class="secao-header__titulo">Refinar e entregar</span>
+  </div>
+  <div class="secao-chips">
+    <span class="chip">depois de criar</span>
+    <span class="chip">antes de mostrar ao cliente</span>
+    <span class="chip">3 prompts</span>
+  </div>
+
+  <!-- Prompt 08 -->
+  <div class="prompt-card">
+    <div class="prompt-card__top">
+      <span class="prompt-card__num" aria-hidden="true">08</span>
+      <div class="prompt-card__meta">
+        <h2 class="prompt-card__title">Revisar e melhorar qualquer projeto</h2>
+        <p class="prompt-card__when">Quando usar: depois de criar a primeira versão — encontra o que ainda não está pronto.</p>
+      </div>
+    </div>
+    <div class="prompt-card__body">
+      <div class="prompt-text">Revise e melhore este projeto que já criamos.
+
+O que o projeto faz: <span class="campo">[explique em 2 frases]</span>
+O que não está funcionando: <span class="campo">[seja específico]</span>
+O que o cliente pediu ou reclamou: <span class="campo">[se tiver]</span>
+
+Faça uma revisão completa:
+1. Funciona corretamente em todos os dispositivos?
+2. Tem texto de exemplo ou placeholder esquecido?
+3. Está profissional para mostrar ao cliente?
+4. O código está organizado e legível?
+5. Tem algo que pode quebrar no uso real?
+
+Me dê a lista de problemas por prioridade e corrija os mais críticos.</div>
+      <div class="tip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span><strong>Dica:</strong> mostre o resultado para alguém do público real antes de entregar. Uma pessoa de fora enxerga o que você, de tanto olhar, deixou de ver.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prompt 09 -->
+  <div class="prompt-card">
+    <div class="prompt-card__top">
+      <span class="prompt-card__num" aria-hidden="true">09</span>
+      <div class="prompt-card__meta">
+        <h2 class="prompt-card__title">Simplificar quando o Claude complicou</h2>
+        <p class="prompt-card__when">Quando usar: sempre que a IA entregar algo maior do que o pedido — traga de volta ao essencial.</p>
+      </div>
+    </div>
+    <div class="prompt-card__body">
+      <div class="prompt-text">Você criou algo mais complexo do que eu precisava. Vamos simplificar.
+
+O que ficou complicado demais: <span class="campo">[descreva o que não faz sentido]</span>
+O que eu realmente preciso: <span class="campo">[liste só o essencial]</span>
+Restrições: <span class="campo">[ex: precisa rodar sem internet / só HTML]</span>
+
+Refaça de forma mais simples:
+- Remova tudo que não foi pedido explicitamente.
+- Use a solução mais direta possível.
+- Se houver escolha entre simples e sofisticado, escolha simples.
+- Explique o que removeu e por quê.
+
+Menos é mais.</div>
+      <div class="tip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span><strong>Dica:</strong> a IA tende a adicionar recursos "por padrão". Repita este prompt quantas vezes precisar — cada rodada corta o excesso e deixa o projeto mais fácil de manter.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prompt 10 -->
+  <div class="prompt-card">
+    <div class="prompt-card__top">
+      <span class="prompt-card__num" aria-hidden="true">10</span>
+      <div class="prompt-card__meta">
+        <h2 class="prompt-card__title">Transformar o projeto em proposta de serviço</h2>
+        <p class="prompt-card__when">Quando usar: depois de terminar — transforma o que você construiu em um documento profissional para vender.</p>
+      </div>
+    </div>
+    <div class="prompt-card__body">
+      <div class="prompt-text">Quero transformar este projeto em uma proposta comercial para o cliente.
+
+Projeto criado: <span class="campo">[descreva o que você construiu]</span>
+Cliente ou segmento: <span class="campo">[ex: academia de bairro, salão de beleza]</span>
+Valor que vou cobrar: <span class="campo">[ou: me sugira um valor justo]</span>
+Prazo de entrega: <span class="campo">[sua estimativa]</span>
+Forma de pagamento: <span class="campo">[ex: 50% antes, 50% na entrega]</span>
+
+Crie uma proposta profissional em HTML pronto para imprimir (A4):
+- Identificação do cliente e do prestador.
+- O que será entregue (escopo claro).
+- O que NÃO está incluído.
+- Prazo, valor e forma de pagamento.
+- Próximos passos.
+- Campo de assinatura.
+
+Tom: profissional, mas direto e sem juridiquês.</div>
+      <div class="tip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span><strong>Dica:</strong> definir o que <em>não está incluído</em> é tão importante quanto o escopo. Evita retrabalho e mal-entendido — o cliente sabe exatamente o que comprou.</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── CTA ─────────────────────────────────────────────────── -->
+  <div class="cta-box">
+    <div>
+      <h2>Quer o <em>método completo?</em></h2>
+      <p>Plugin com 12 skills, 12 projetos prontos para vender,<br>
+         subagents automáticos, hooks e muito mais no pacote completo.</p>
+    </div>
+    <a href="https://fabricadeprojetos.com.br" class="cta-box__link">
+      fabricadeprojetos.com.br →
+    </a>
+  </div>
+
+  <!-- ── Rodapé ──────────────────────────────────────────────── -->
+  <footer class="footer">
+    <span>Fábrica de Projetos com IA · fabricadeprojetos.com.br</span>
+    <span>Material gratuito — compartilhe livremente</span>
+  </footer>
+
+</div>
+</body>
+</html>
