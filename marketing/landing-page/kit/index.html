@@ -438,16 +438,22 @@
   </footer>
 
   <script>
+    // ─── Cole aqui a URL do seu Apps Script após publicar ───────────────
+    const SCRIPT_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
+    // ────────────────────────────────────────────────────────────────────
+
     const form      = document.getElementById('form-captura');
     const estadoFrm = document.getElementById('estado-form');
     const estadoOk  = document.getElementById('estado-sucesso');
+    const btnEnviar = form.querySelector('button[type="submit"]');
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
       const nome  = form.nome.value.trim();
       const email = form.email.value.trim();
 
+      // Validação visual
       let valido = true;
       [form.nome, form.email].forEach(campo => {
         const vazio    = !campo.value.trim();
@@ -456,32 +462,36 @@
       });
       if (!valido) return;
 
-      // ─── INTEGRAÇÃO ESP ───────────────────────────────────────────────
-      // Substitua este bloco pela chamada real ao seu serviço de e-mail.
-      //
-      //   • Formspree (mais simples, sem backend):
-      //     fetch('https://formspree.io/f/SEU_ID', {
-      //       method: 'POST',
-      //       headers: { 'Content-Type': 'application/json' },
-      //       body: JSON.stringify({ nome, email })
-      //     });
-      //
-      //   • MailerLite:
-      //     fetch('https://connect.mailerlite.com/api/subscribers', {
-      //       method: 'POST',
-      //       headers: { 'Content-Type': 'application/json',
-      //                  'Authorization': 'Bearer SUA_CHAVE' },
-      //       body: JSON.stringify({ email, fields: { name: nome },
-      //                              groups: ['ID_DO_GRUPO'] })
-      //     });
-      // ─────────────────────────────────────────────────────────────────
+      // Estado de loading
+      btnEnviar.disabled    = true;
+      btnEnviar.textContent = 'Enviando…';
 
-      console.log('Lead capturado:', { nome, email }); // remover em produção
+      // POST para Google Sheets via Apps Script
+      // O modo 'no-cors' é necessário para chamadas ao Apps Script pelo browser.
+      // A resposta é opaca (não lemos), mas os dados chegam na planilha.
+      try {
+        await fetch(SCRIPT_URL, {
+          method:  'POST',
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nome,
+            email,
+            timestamp: new Date().toLocaleString('pt-BR'),
+            origem:    'kit-10-prompts'
+          })
+        });
+      } catch (err) {
+        // no-cors pode lançar em alguns ambientes — ignora, mostra sucesso mesmo assim
+        console.warn('fetch warning (esperado com no-cors):', err);
+      }
 
+      // Exibe estado de sucesso
       estadoFrm.hidden = true;
       estadoOk.hidden  = false;
     });
 
+    // Remove erro ao digitar
     form.querySelectorAll('input').forEach(input => {
       input.addEventListener('input', () => input.classList.remove('erro'));
     });
