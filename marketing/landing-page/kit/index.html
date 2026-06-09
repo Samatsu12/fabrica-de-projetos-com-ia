@@ -167,6 +167,8 @@
     }
     .campo-grupo { display: flex; flex-direction: column; gap: .35rem; }
     .campo-grupo label { font-size: .83rem; font-weight: 600; color: var(--ink); }
+    .campo-erro { font-size: .75rem; color: var(--accent); font-family: var(--ff-m); }
+    .campo-erro[hidden] { display: none; }
     .campo-grupo input {
       font-family: var(--ff-b);
       font-size: .93rem;
@@ -367,6 +369,15 @@
               <input type="email" id="email" name="email"
                      autocomplete="email"
                      placeholder="voce@email.com.br" required>
+              <span class="campo-erro" id="erro-email" hidden></span>
+            </div>
+            <div class="campo-grupo">
+              <label for="telefone">WhatsApp com DDD</label>
+              <input type="tel" id="telefone" name="telefone"
+                     autocomplete="tel"
+                     placeholder="(11) 99999-9999" required
+                     maxlength="15" inputmode="numeric">
+              <span class="campo-erro" id="erro-tel" hidden></span>
             </div>
             <button type="submit" class="btn-principal">
               Quero os 10 prompts grátis
@@ -438,37 +449,96 @@
   </footer>
 
   <script>
-    // ─── Cole aqui a URL do seu Apps Script após publicar ───────────────
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMjXOb8WnklCi-fTLDASAu1sDvTxvZRWgwRo77zCIP-5MRNW7xU6341vYOIAkSpJofnQ/exec';
-    // ────────────────────────────────────────────────────────────────────
 
+    // ── Domínios de e-mail descartável bloqueados ──────────────────────
+    const DESCARTAVEIS = new Set([
+      'mailinator.com','guerrillamail.com','guerrillamail.net','guerrillamail.org',
+      'guerrillamail.biz','guerrillamail.de','guerrillamail.info','grr.la',
+      'sharklasers.com','spam4.me','tempmail.com','temp-mail.org','throwaway.email',
+      'trashmail.com','yopmail.com','yopmail.fr','cool.fr.nf','jetable.fr.nf',
+      'fakeinbox.com','dispostable.com','mailnull.com','spamgourmet.com',
+      'getairmail.com','filzmail.com','tempr.email','maildrop.cc','spamex.com',
+      'trashmail.at','trashmail.io','spamfree24.org','0-mail.com','amilegit.com',
+    ]);
+
+    // ── Validação de e-mail (regex + domínio descartável) ─────────────
+    function validarEmail(email) {
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+      if (!ok) return 'E-mail com formato inválido.';
+      const dominio = email.split('@')[1].toLowerCase();
+      if (DESCARTAVEIS.has(dominio)) return 'Use um e-mail permanente (Gmail, Outlook, etc).';
+      return null; // válido
+    }
+
+    // ── Máscara de telefone brasileiro ────────────────────────────────
+    function maskTel(v) {
+      v = v.replace(/\D/g, '').slice(0, 11);
+      if (v.length <= 2)  return v.length ? '(' + v : '';
+      if (v.length <= 6)  return '(' + v.slice(0,2) + ') ' + v.slice(2);
+      if (v.length <= 10) return '(' + v.slice(0,2) + ') ' + v.slice(2,6) + '-' + v.slice(6);
+      return                     '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+    }
+
+    function validarTel(v) {
+      const d = v.replace(/\D/g, '');
+      if (d.length < 10) return 'Informe o DDD + número completo.';
+      if (d.length === 10 && d[2] === '9') return 'Celular deve ter 11 dígitos com DDD.';
+      return null;
+    }
+
+    // ── Refs ──────────────────────────────────────────────────────────
     const form      = document.getElementById('form-captura');
     const estadoFrm = document.getElementById('estado-form');
     const estadoOk  = document.getElementById('estado-sucesso');
     const btnEnviar = form.querySelector('button[type="submit"]');
+    const erroEmail = document.getElementById('erro-email');
+    const erroTel   = document.getElementById('erro-tel');
 
+    // ── Máscara ao digitar ────────────────────────────────────────────
+    form.telefone.addEventListener('input', function () {
+      const pos = this.selectionStart;
+      this.value = maskTel(this.value);
+    });
+
+    // ── Submit ────────────────────────────────────────────────────────
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const nome  = form.nome.value.trim();
-      const email = form.email.value.trim();
+      const nome     = form.nome.value.trim();
+      const email    = form.email.value.trim();
+      const telefone = form.telefone.value.trim();
 
-      // Validação visual
+      // Reset erros
+      [form.nome, form.email, form.telefone].forEach(c => c.classList.remove('erro'));
+      erroEmail.hidden = erroTel.hidden = true;
+
       let valido = true;
-      [form.nome, form.email].forEach(campo => {
-        const vazio    = !campo.value.trim();
-        const emailInv = campo.type === 'email' && !campo.value.includes('@');
-        if (vazio || emailInv) { campo.classList.add('erro'); valido = false; }
-      });
+
+      if (!nome) { form.nome.classList.add('erro'); valido = false; }
+
+      const errEmail = validarEmail(email);
+      if (errEmail) {
+        form.email.classList.add('erro');
+        erroEmail.textContent = errEmail;
+        erroEmail.hidden = false;
+        valido = false;
+      }
+
+      const errTel = validarTel(telefone);
+      if (errTel) {
+        form.telefone.classList.add('erro');
+        erroTel.textContent = errTel;
+        erroTel.hidden = false;
+        valido = false;
+      }
+
       if (!valido) return;
 
-      // Estado de loading
+      // Loading
       btnEnviar.disabled    = true;
       btnEnviar.textContent = 'Enviando…';
 
-      // POST para Google Sheets via Apps Script
-      // O modo 'no-cors' é necessário para chamadas ao Apps Script pelo browser.
-      // A resposta é opaca (não lemos), mas os dados chegam na planilha.
       try {
         await fetch(SCRIPT_URL, {
           method:  'POST',
@@ -477,23 +547,26 @@
           body: JSON.stringify({
             nome,
             email,
+            telefone,
             timestamp: new Date().toLocaleString('pt-BR'),
             origem:    'kit-10-prompts'
           })
         });
       } catch (err) {
-        // no-cors pode lançar em alguns ambientes — ignora, mostra sucesso mesmo assim
-        console.warn('fetch warning (esperado com no-cors):', err);
+        console.warn('fetch (no-cors esperado):', err);
       }
 
-      // Exibe estado de sucesso
       estadoFrm.hidden = true;
       estadoOk.hidden  = false;
     });
 
-    // Remove erro ao digitar
+    // Remove erro ao redigitar
     form.querySelectorAll('input').forEach(input => {
-      input.addEventListener('input', () => input.classList.remove('erro'));
+      input.addEventListener('input', () => {
+        input.classList.remove('erro');
+        if (input.id === 'email') erroEmail.hidden = true;
+        if (input.id === 'telefone') erroTel.hidden = true;
+      });
     });
   </script>
 </body>
