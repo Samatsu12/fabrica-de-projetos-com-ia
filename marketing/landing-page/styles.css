@@ -315,6 +315,8 @@ mark { background: linear-gradient(transparent 55%, rgba(216,64,42,0.35) 55%); c
 .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
 .footer-inner .brand-text { color: var(--paper); }
 .footer-inner .mono-tag { color: #b9ab93; }
+.footer-inner .mono-tag a { color: var(--paper); text-decoration: underline; text-underline-offset: 2px; }
+.footer-inner .mono-tag a:hover { color: #ffb9a8; }
 
 /* ===== Reveal (animação de entrada) ===== */
 .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
