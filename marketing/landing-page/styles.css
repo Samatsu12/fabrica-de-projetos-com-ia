@@ -220,6 +220,54 @@ mark { background: linear-gradient(transparent 55%, rgba(216,64,42,0.35) 55%); c
 .peca h3 { font-size: 1.28rem; margin-bottom: 9px; }
 .peca p { color: var(--ink-soft); font-size: 0.95rem; }
 
+/* ===== 04B Veja por dentro — mockups ===== */
+.dentro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
+.dentro-item { margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.dentro-item figcaption { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.03em; color: var(--ink-soft); text-align: center; }
+.mk { border: 2px solid var(--ink); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; aspect-ratio: 4 / 3; display: flex; }
+
+/* mockup — guia/capa */
+.mk-guia { background: var(--card); flex-direction: column; padding: 22px 22px 16px; }
+.mk-guia-top { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.mk-guia-num { font-family: var(--serif); font-size: clamp(3rem, 7vw, 4.4rem); font-weight: 800; color: var(--accent); line-height: 0.85; margin-top: 14px; }
+.mk-guia-ttl { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; line-height: 1.05; color: var(--ink); }
+.mk-guia-ttl em { display: block; font-style: italic; font-weight: 400; color: var(--ink-soft); font-size: 1.05rem; }
+.mk-guia-rule { height: 3px; width: 42%; background: var(--accent); border-radius: 2px; margin: 13px 0; }
+.mk-guia-foot { font-size: 0.66rem; color: var(--muted); margin-top: auto; border-top: 1px solid var(--line); padding-top: 10px; }
+
+/* mockup — terminal/instalação */
+.mk-term { background: #1b1710; flex-direction: column; }
+.mk-term-bar { background: #2a241b; padding: 9px 12px; display: flex; gap: 6px; }
+.mk-term-bar span { width: 9px; height: 9px; border-radius: 50%; background: #5a5142; }
+.mk-term-bar span:first-child { background: var(--accent); }
+.mk-term-body { padding: 16px; font-family: var(--mono); font-size: 0.72rem; line-height: 1.85; color: #e9dfcb; }
+.mk-term-body p { margin: 0; }
+.mk-term-body .pr { color: var(--accent); margin-right: 6px; }
+.mk-term-body .ok { color: #9fc59a; }
+.mk-term-body .cursor { display: inline-block; width: 7px; height: 13px; background: var(--accent); margin-left: 4px; vertical-align: middle; animation: blink 1.1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* mockup — projeto pronto */
+.mk-proj { background: var(--paper); flex-direction: column; }
+.mk-proj-bar { background: var(--paper-2); padding: 8px 12px; display: flex; align-items: center; gap: 8px; border-bottom: 1.5px solid var(--line); }
+.mk-proj-bar .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); flex: none; }
+.mk-proj-bar .url { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 2px 10px; }
+.mk-proj-body { padding: 14px; display: flex; flex-direction: column; gap: 11px; flex: 1; }
+.mk-proj-head { display: flex; justify-content: space-between; align-items: center; }
+.mk-proj-logo { width: 38px; height: 9px; background: var(--ink); border-radius: 2px; }
+.mk-proj-cta { width: 50px; height: 16px; background: var(--accent); border-radius: 3px; }
+.mk-proj-hero { display: flex; flex-direction: column; gap: 8px; padding: 4px 0; }
+.mk-proj-hero .l { height: 9px; border-radius: 2px; background: var(--line-strong); }
+.mk-proj-hero .l1 { width: 80%; background: var(--ink); height: 12px; }
+.mk-proj-hero .l2 { width: 55%; }
+.mk-proj-btn { width: 64px; height: 18px; background: var(--accent); border-radius: 3px; margin-top: 2px; }
+.mk-proj-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: auto; }
+.mk-proj-cards span { height: 30px; background: var(--card); border: 1.5px solid var(--line); border-radius: 3px; }
+
+@media (max-width: 760px) {
+  .dentro-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+}
+
 /* ===== 05 Projetos — marquee ===== */
 .section-projetos { padding-bottom: 78px; }
 .marquee { overflow: hidden; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: var(--accent); padding: 16px 0; margin: 12px 0 40px; }
