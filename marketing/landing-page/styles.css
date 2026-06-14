@@ -290,6 +290,16 @@ mark { background: linear-gradient(transparent 55%, rgba(216,64,42,0.35) 55%); c
 .wo-list { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
 .wo-list li { padding-left: 30px; position: relative; }
 .wo-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 800; font-family: var(--mono); }
+
+/* bloco de preço — estilo recibo */
+.wo-price { border-top: 2px dashed var(--line-strong); border-bottom: 2px dashed var(--line-strong); margin: 0 0 26px; padding: 22px 0; text-align: center; }
+.wo-price-compare { font-size: 0.95rem; color: var(--muted); margin-bottom: 16px; }
+.wo-price-compare .strike { color: var(--ink-soft); font-weight: 700; text-decoration-thickness: 2px; opacity: 1; }
+.wo-price-label { display: block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.wo-price-tag { display: flex; align-items: flex-start; justify-content: center; gap: 4px; color: var(--accent-ink); line-height: 1; margin-bottom: 10px; }
+.wo-price-tag .cur { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; margin-top: 0.55rem; }
+.wo-price-tag .num { font-family: var(--serif); font-size: 4.6rem; font-weight: 800; letter-spacing: -0.02em; }
+.wo-price-parc { display: block; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.04em; color: var(--ink-soft); }
 .wo-guarantee { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 16px; text-align: center; }
 .wo-stamp { position: absolute; top: 78px; right: -6px; transform: rotate(11deg); border: 3px double var(--accent); color: var(--accent); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 8px 14px; border-radius: 6px; line-height: 1.3; background: rgba(250,245,234,0.7); }
 .wo-stamp b { font-size: 1.05rem; }
