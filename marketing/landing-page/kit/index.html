@@ -146,9 +146,18 @@
       color: var(--accent);
     }
 
+    .heroi__sub {
+      font-size: 1.02rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      max-width: 460px;
+    }
+    .heroi__sub strong { color: var(--ink); font-weight: 700; }
+
     .valor {
       list-style: none;
-      margin-bottom: 2rem;
+      margin: 1.6rem 0 0;
       display: flex;
       flex-direction: column;
       gap: .6rem;
@@ -328,10 +337,11 @@
 
     /* Responsivo */
     @media (max-width: 860px) {
-      .heroi { grid-template-columns: 1fr; padding: 2.5rem 1.25rem 3.5rem; gap: 3rem; }
-      .heroi__conteudo { max-width: 100%; order: 2; }
-      .heroi__visual { order: 1; gap: 1.5rem; }
-      .mockup-cena { width: 200px; height: calc(200px * 1.414); }
+      .heroi { grid-template-columns: 1fr; padding: 2rem 1.25rem 3rem; gap: 2.25rem; }
+      .heroi__conteudo { max-width: 100%; order: 1; }
+      .heroi__visual { order: 2; gap: 1.5rem; }
+      .heroi__sub { max-width: 100%; }
+      .mockup-cena { width: 170px; height: calc(170px * 1.414); }
       .mockup-num { font-size: 4.5rem; }
       .mockup-subtitulo strong { font-size: 1.05rem; }
       .mockup-subtitulo em { font-size: .8rem; }
@@ -359,18 +369,17 @@
 
       <!-- Coluna esquerda: copy + formulário -->
       <div class="heroi__conteudo">
-        <p class="kicker">Baixe agora, grátis</p>
+        <p class="kicker">Material gratuito</p>
 
         <h1 class="titulo">
-          Kit 10 Prompts Prontos<br>
-          <em>do briefing à entrega<br>ao cliente</em>
+          Crie com IA<br>
+          <em>sem saber programar</em>
         </h1>
 
-        <ul class="valor">
-          <li>10 prompts em 3 fases: planejar, criar e refinar</li>
-          <li>Projetos prontos: landing, catálogo, orçamento, CRM e dashboard</li>
-          <li>Sem precisar saber programar</li>
-        </ul>
+        <p class="heroi__sub">
+          Baixe os <strong>10 prompts prontos</strong> que transformam sua ideia em
+          site, catálogo, orçamento ou sistema — é só copiar, colar e ver funcionar.
+        </p>
 
         <!-- Estado padrão: formulário -->
         <div class="formulario-wrap" id="estado-form">
@@ -413,6 +422,13 @@
             Dica: salve a página nos favoritos para voltar quando quiser.
           </p>
         </div>
+
+        <!-- Reforço: o que vem no kit -->
+        <ul class="valor">
+          <li>Prontos para usar: copie, cole e adapte</li>
+          <li>Do planejamento à entrega, em 3 fases guiadas</li>
+          <li>Sem programar e sem instalar nada complicado</li>
+        </ul>
       </div>
 
       <!-- Coluna direita: mockup CSS do documento -->
