@@ -7,7 +7,7 @@ Um funil simples e honesto para vender o infoproduto. A lógica é a mesma que v
 ANÚNCIO / CONTEÚDO
         │  (tráfego dos criativos)
         ▼
-PÁGINA DE CAPTURA  ──►  isca grátis (mini-aula / PDF "5 prompts")
+PÁGINA DE CAPTURA  ──►  isca grátis (PDF "10 prompts prontos")
         │  (e-mail + WhatsApp)
         ▼
 SEQUÊNCIA DE NUTRIÇÃO  (e-mail + WhatsApp, 4 a 5 toques)
@@ -29,8 +29,7 @@ PEDIDO DE DEPOIMENTO + INDICAÇÃO
 
 ## Etapa 1 — Topo: atrair (isca digital)
 
-**Isca sugerida:** "5 prompts prontos para criar seu primeiro projeto com IA" (PDF curto) ou
-uma mini-aula de 10 minutos. Use o [Projeto 10 — Página de Captura](../../projetos/10-pagina-captura-infoproduto/)
+**Isca atual:** "10 prompts prontos para criar seu primeiro projeto com IA" (PDF curto). Use o [Projeto 10 — Página de Captura](../../projetos/10-pagina-captura-infoproduto/)
 para montar a página.
 
 **Objetivo:** capturar e-mail + WhatsApp em troca da isca.
@@ -42,8 +41,8 @@ para montar a página.
 Tom: útil primeiro, venda depois. Entregue valor real; a oferta surge naturalmente.
 
 **E-mail 1 (imediato) — Entrega da isca**
-> Assunto: Aqui está 👉 seus 5 prompts
-> Oi, [nome]! Como prometido, seus 5 prompts estão aqui: [link].
+> Assunto: Aqui está 👉 seus 10 prompts
+> Oi, [nome]! Como prometido, seus 10 prompts estão aqui: [link].
 > Dica: comece pelo prompt de briefing. É ele que separa quem "usa IA" de quem "produz com IA".
 > Amanhã te mostro o erro nº 1 de quem tenta criar projeto com IA.
 
