@@ -388,14 +388,6 @@
                      placeholder="voce@email.com.br" required>
               <span class="campo-erro" id="erro-email" hidden></span>
             </div>
-            <div class="campo-grupo">
-              <label for="telefone">WhatsApp com DDD</label>
-              <input type="tel" id="telefone" name="telefone"
-                     autocomplete="tel"
-                     placeholder="(11) 99999-9999" required
-                     maxlength="15" inputmode="numeric">
-              <span class="campo-erro" id="erro-tel" hidden></span>
-            </div>
             <button type="submit" class="btn-principal">
               Quero os 10 prompts grátis
               <span class="btn-seta" aria-hidden="true">→</span>
@@ -488,47 +480,22 @@
       return null; // válido
     }
 
-    // ── Máscara de telefone brasileiro ────────────────────────────────
-    function maskTel(v) {
-      v = v.replace(/\D/g, '').slice(0, 11);
-      if (v.length <= 2)  return v.length ? '(' + v : '';
-      if (v.length <= 6)  return '(' + v.slice(0,2) + ') ' + v.slice(2);
-      if (v.length <= 10) return '(' + v.slice(0,2) + ') ' + v.slice(2,6) + '-' + v.slice(6);
-      return                     '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
-    }
-
-    function validarTel(v) {
-      const d = v.replace(/\D/g, '');
-      if (d.length < 10) return 'Informe o DDD + número completo.';
-      if (d.length === 10 && d[2] === '9') return 'Celular deve ter 11 dígitos com DDD.';
-      return null;
-    }
-
     // ── Refs ──────────────────────────────────────────────────────────
     const form      = document.getElementById('form-captura');
     const estadoFrm = document.getElementById('estado-form');
     const estadoOk  = document.getElementById('estado-sucesso');
     const btnEnviar = form.querySelector('button[type="submit"]');
     const erroEmail = document.getElementById('erro-email');
-    const erroTel   = document.getElementById('erro-tel');
-
-    // ── Máscara ao digitar ────────────────────────────────────────────
-    form.telefone.addEventListener('input', function () {
-      const pos = this.selectionStart;
-      this.value = maskTel(this.value);
-    });
 
     // ── Submit ────────────────────────────────────────────────────────
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const nome     = form.nome.value.trim();
-      const email    = form.email.value.trim();
-      const telefone = form.telefone.value.trim();
+      const nome  = form.nome.value.trim();
+      const email = form.email.value.trim();
 
-      // Reset erros
-      [form.nome, form.email, form.telefone].forEach(c => c.classList.remove('erro'));
-      erroEmail.hidden = erroTel.hidden = true;
+      [form.nome, form.email].forEach(c => c.classList.remove('erro'));
+      erroEmail.hidden = true;
 
       let valido = true;
 
@@ -542,17 +509,8 @@
         valido = false;
       }
 
-      const errTel = validarTel(telefone);
-      if (errTel) {
-        form.telefone.classList.add('erro');
-        erroTel.textContent = errTel;
-        erroTel.hidden = false;
-        valido = false;
-      }
-
       if (!valido) return;
 
-      // Loading
       btnEnviar.disabled    = true;
       btnEnviar.textContent = 'Enviando…';
 
@@ -564,7 +522,6 @@
           body: JSON.stringify({
             nome,
             email,
-            telefone,
             timestamp: new Date().toLocaleString('pt-BR'),
             origem:    'kit-10-prompts'
           })
@@ -573,19 +530,16 @@
         console.warn('fetch (no-cors esperado):', err);
       }
 
-      // Evento Meta Pixel — Lead capturado
       fbq('track', 'Lead');
 
       estadoFrm.hidden = true;
       estadoOk.hidden  = false;
     });
 
-    // Remove erro ao redigitar
     form.querySelectorAll('input').forEach(input => {
       input.addEventListener('input', () => {
         input.classList.remove('erro');
         if (input.id === 'email') erroEmail.hidden = true;
-        if (input.id === 'telefone') erroTel.hidden = true;
       });
     });
   </script>
