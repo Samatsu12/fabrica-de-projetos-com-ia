@@ -226,6 +226,12 @@ mark { background: linear-gradient(transparent 55%, rgba(216,64,42,0.35) 55%); c
 .dentro-item figcaption { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.03em; color: var(--ink-soft); text-align: center; }
 .mk { border: 2px solid var(--ink); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; aspect-ratio: 4 / 3; display: flex; }
 
+/* cards com print real */
+.mk-foto { padding: 0; background: #14110c; }
+.mk-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mk-capa img { object-position: center 40%; }
+.mk-print img { object-position: top center; }
+
 /* mockup — guia/capa */
 .mk-guia { background: var(--card); flex-direction: column; padding: 22px 22px 16px; }
 .mk-guia-top { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
