@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Que projeto com IA seu negócio precisa? — Fábrica de Projetos com IA</title>
+  <meta name="description" content="Responda 3 perguntas e descubra o primeiro projeto com IA que vai dar resultado no seu negócio — com o passo a passo grátis.">
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '980101421588132');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=980101421588132&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+
+  <style>
+    :root{
+      --paper:#f1e9da; --paper-2:#e7dcc8; --card:#faf5ea; --ink:#19150f;
+      --ink-2:#3d3727; --ink-m:#6b6152; --accent:#d8402a; --accent-d:#b8321e;
+      --border:#c8bfae; --ok:#4f7a3a;
+      --ff-d:'Fraunces',Georgia,serif; --ff-b:'Public Sans',system-ui,sans-serif; --ff-m:'JetBrains Mono',monospace;
+      --r:8px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:16px}
+    body{
+      font-family:var(--ff-b); background:var(--paper); color:var(--ink);
+      min-height:100vh; display:flex; flex-direction:column; line-height:1.6;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+    }
+    .topo{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
+    .topo__marca{font-family:var(--ff-m);font-size:.72rem;letter-spacing:.07em;color:var(--ink-m);text-decoration:none}
+    .topo__marca b{color:var(--accent)}
+
+    main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem 1.25rem 2.5rem;width:100%;max-width:640px;margin:0 auto}
+
+    /* Barra de progresso */
+    .progresso{width:100%;height:6px;background:var(--paper-2);border:1px solid var(--border);border-radius:99px;overflow:hidden;margin-bottom:2rem;display:none}
+    .progresso.on{display:block}
+    .progresso__fill{height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .4s cubic-bezier(.2,.7,.2,1)}
+
+    .tela{width:100%;display:none;animation:surge .4s ease both}
+    .tela.on{display:block}
+    @keyframes surge{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+    .kicker{font-family:var(--ff-m);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
+    .kicker::before{content:'';width:22px;height:2px;background:var(--accent)}
+
+    h1{font-family:var(--ff-d);font-size:clamp(1.85rem,6vw,2.6rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem}
+    h1 em{font-style:italic;color:var(--accent);font-weight:700}
+    .sub{font-size:1.05rem;color:var(--ink-2);margin-bottom:2rem;max-width:520px}
+
+    .pergunta{font-family:var(--ff-d);font-size:clamp(1.5rem,5vw,2rem);font-weight:700;line-height:1.12;margin-bottom:1.5rem;letter-spacing:-.01em}
+    .passo-label{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-m);margin-bottom:.6rem}
+
+    /* Opções (cards clicáveis) */
+    .opcoes{display:flex;flex-direction:column;gap:.7rem}
+    .opcao{
+      display:flex;align-items:center;gap:.85rem;width:100%;text-align:left;
+      background:var(--card);border:2px solid var(--border);border-radius:var(--r);
+      padding:1.05rem 1.1rem;font-family:var(--ff-b);font-size:1.02rem;font-weight:500;color:var(--ink);
+      cursor:pointer;transition:border-color .15s,background .15s,transform .1s;
+    }
+    .opcao:hover{border-color:var(--accent);background:#fff}
+    .opcao:active{transform:scale(.99)}
+    .opcao__ic{font-size:1.4rem;line-height:1;flex:none}
+    .opcao__seta{margin-left:auto;color:var(--border);font-family:var(--ff-m);transition:transform .15s,color .15s}
+    .opcao:hover .opcao__seta{color:var(--accent);transform:translateX(3px)}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      font-family:var(--ff-d);font-size:1.1rem;font-weight:700;color:var(--paper);background:var(--accent);
+      border:none;border-radius:var(--r);padding:1rem 1.6rem;cursor:pointer;text-decoration:none;width:100%;
+      box-shadow:0 2px 10px rgba(216,64,42,.28);transition:background .15s,transform .1s
+    }
+    .btn:hover{background:var(--accent-d)}
+    .btn:active{transform:scale(.99)}
+    .btn[disabled]{opacity:.6;cursor:default}
+
+    .voltar{background:none;border:none;color:var(--ink-m);font-family:var(--ff-m);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;margin-top:1.25rem;padding:.4rem 0}
+    .voltar:hover{color:var(--accent)}
+
+    /* Formulário */
+    .campo{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+    .campo label{font-size:.85rem;font-weight:600}
+    .campo input{font-family:var(--ff-b);font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:.85rem 1rem;outline:none;transition:border-color .15s,box-shadow .15s}
+    .campo input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(216,64,42,.11)}
+    .campo input.erro{border-color:var(--accent);background:rgba(216,64,42,.04)}
+    .erro-msg{font-family:var(--ff-m);font-size:.74rem;color:var(--accent);display:none}
+    .erro-msg.on{display:block}
+    .privacidade{font-size:.78rem;color:var(--ink-m);text-align:center;margin-top:.9rem}
+
+    /* Resultado */
+    .resultado__tag{font-family:var(--ff-m);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ok);margin-bottom:.7rem;display:flex;align-items:center;gap:.45rem}
+    .resultado__nome{font-family:var(--ff-d);font-size:clamp(1.9rem,6vw,2.7rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;color:var(--ink);margin-bottom:.9rem}
+    .resultado__nome em{font-style:italic;color:var(--accent)}
+    .resultado__desc{font-size:1.05rem;color:var(--ink-2);margin-bottom:1.4rem}
+    .resultado__box{background:var(--card);border:2px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--r);padding:1.1rem 1.2rem;margin-bottom:1.6rem;font-size:.96rem;color:var(--ink-2)}
+    .resultado__box strong{color:var(--ink)}
+    .btn-linha{display:block;text-align:center;margin-top:.9rem;font-family:var(--ff-m);font-size:.82rem;color:var(--ink-m);text-decoration:underline;text-underline-offset:3px}
+    .btn-linha:hover{color:var(--accent)}
+
+    .rodape{padding:1.1rem 1.5rem;border-top:1px solid var(--border);text-align:center;font-size:.74rem;color:var(--ink-m)}
+    .rodape a{color:var(--ink-m)}
+
+    @media (max-width:480px){
+      main{padding:1.25rem 1.1rem 2rem}
+      .opcao{padding:.95rem 1rem;font-size:.98rem}
+    }
+  </style>
+</head>
+<body>
+  <header class="topo">
+    <a href="/" class="topo__marca"><b>fabrica</b> · projetos com ia</a>
+  </header>
+
+  <main>
+    <div class="progresso" id="progresso"><div class="progresso__fill" id="progresso-fill"></div></div>
+
+    <!-- Tela 0: Intro -->
+    <section class="tela on" data-tela="0">
+      <p class="kicker">Diagnóstico gratuito · 30 segundos</p>
+      <h1>Qual projeto com IA<br>o <em>seu negócio</em> precisa?</h1>
+      <p class="sub">Responda 3 perguntas rápidas e descubra o primeiro projeto que vai te dar resultado de verdade — e receba o passo a passo dele de graça.</p>
+      <button class="btn" id="iniciar">Começar o diagnóstico →</button>
+      <p class="privacidade">Sem custo. Sem instalar nada. Feito para quem não programa.</p>
+    </section>
+
+    <!-- Tela 1: Pergunta 1 -->
+    <section class="tela" data-tela="1">
+      <p class="passo-label">Pergunta 1 de 3</p>
+      <p class="pergunta">Qual é o seu negócio?</p>
+      <div class="opcoes" data-grupo="negocio">
+        <button class="opcao" data-valor="loja"><span class="opcao__ic">🛍️</span> Tenho uma loja / vendo produtos <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="servico"><span class="opcao__ic">🔧</span> Presto serviço (visitas, atendimentos) <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="autonomo"><span class="opcao__ic">💼</span> Sou autônomo / consultor <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="equipe"><span class="opcao__ic">👥</span> Tenho equipe / pequena empresa <span class="opcao__seta">→</span></button>
+      </div>
+      <button class="voltar" data-voltar>← Voltar</button>
+    </section>
+
+    <!-- Tela 2: Pergunta 2 -->
+    <section class="tela" data-tela="2">
+      <p class="passo-label">Pergunta 2 de 3</p>
+      <p class="pergunta">Hoje, o que mais te trava?</p>
+      <div class="opcoes" data-grupo="dor">
+        <button class="opcao" data-valor="atrair"><span class="opcao__ic">🧲</span> Atrair e conquistar clientes <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="organizar"><span class="opcao__ic">🗂️</span> Organizar clientes e informações <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="orcar"><span class="opcao__ic">🧮</span> Fazer orçamentos e cobrar <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="atender"><span class="opcao__ic">📅</span> Dar conta de atender a demanda <span class="opcao__seta">→</span></button>
+      </div>
+      <button class="voltar" data-voltar>← Voltar</button>
+    </section>
+
+    <!-- Tela 3: Pergunta 3 -->
+    <section class="tela" data-tela="3">
+      <p class="passo-label">Pergunta 3 de 3</p>
+      <p class="pergunta">Como você resolve isso hoje?</p>
+      <div class="opcoes" data-grupo="ferramenta">
+        <button class="opcao" data-valor="cabeca"><span class="opcao__ic">🧠</span> Na cabeça / no papel <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="whatsapp"><span class="opcao__ic">💬</span> Tudo no WhatsApp <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="planilha"><span class="opcao__ic">📊</span> Em planilhas <span class="opcao__seta">→</span></button>
+        <button class="opcao" data-valor="sistema"><span class="opcao__ic">💳</span> Pago um sistema / serviço <span class="opcao__seta">→</span></button>
+      </div>
+      <button class="voltar" data-voltar>← Voltar</button>
+    </section>
+
+    <!-- Tela 4: Captura -->
+    <section class="tela" data-tela="4">
+      <p class="kicker">Quase lá</p>
+      <p class="pergunta">Já sei o projeto ideal pra você.<br>Pra onde envio o passo a passo?</p>
+      <form id="form-diag" novalidate>
+        <div class="campo">
+          <label for="nome">Como você se chama?</label>
+          <input type="text" id="nome" autocomplete="given-name" placeholder="Seu primeiro nome" required>
+        </div>
+        <div class="campo">
+          <label for="email">Seu melhor e-mail</label>
+          <input type="email" id="email" autocomplete="email" placeholder="voce@email.com.br" required>
+          <span class="erro-msg" id="erro-email"></span>
+        </div>
+        <button class="btn" type="submit" id="btn-result">Ver meu resultado →</button>
+        <p class="privacidade">Sem spam. Cancelamento em um clique.</p>
+      </form>
+      <button class="voltar" data-voltar>← Voltar</button>
+    </section>
+
+    <!-- Tela 5: Resultado -->
+    <section class="tela" data-tela="5">
+      <p class="resultado__tag">✓ Diagnóstico pronto</p>
+      <p class="passo-label" id="res-personal">Para o seu negócio</p>
+      <h2 class="resultado__nome" id="res-nome">—</h2>
+      <p class="resultado__desc" id="res-desc">—</p>
+      <div class="resultado__box" id="res-box">—</div>
+      <a class="btn" id="res-cta" href="https://fabricadeprojetos.com.br/#oferta">Quero criar esse projeto →</a>
+      <a class="btn-linha" href="/10-prompts.html" target="_blank" rel="noopener">Ou baixe primeiro os 10 prompts grátis →</a>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <a href="/">fabricadeprojetos.com.br</a> &nbsp;·&nbsp;
+    <a href="/politica-privacidade.html">Política de privacidade</a>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwEWi-esZU0YhsfJYlLpO6N6xR2xZD7hcxFU9Zh9TzFIXOA_1x_kRACJhZb5EVxJhfsNg/exec';
+
+    const respostas = { negocio:'', dor:'', ferramenta:'' };
+    let tela = 0;
+    const total = 5; // telas 0..5 (0 intro, 5 resultado); progresso conta 1..4
+
+    const telas = document.querySelectorAll('.tela');
+    const prog = document.getElementById('progresso');
+    const progFill = document.getElementById('progresso-fill');
+
+    function mostrar(n){
+      telas.forEach(t => t.classList.toggle('on', +t.dataset.tela === n));
+      tela = n;
+      // progresso aparece nas perguntas/captura (1..4)
+      if (n >= 1 && n <= 4){ prog.classList.add('on'); progFill.style.width = (n/4*100) + '%'; }
+      else { prog.classList.remove('on'); }
+      window.scrollTo({ top:0, behavior:'smooth' });
+    }
+
+    document.getElementById('iniciar').addEventListener('click', () => mostrar(1));
+
+    // Opções clicáveis
+    document.querySelectorAll('.opcoes').forEach(grupo => {
+      grupo.querySelectorAll('.opcao').forEach(op => {
+        op.addEventListener('click', () => {
+          respostas[grupo.dataset.grupo] = op.dataset.valor;
+          mostrar(tela + 1);
+        });
+      });
+    });
+
+    // Voltar
+    document.querySelectorAll('[data-voltar]').forEach(b => {
+      b.addEventListener('click', () => mostrar(Math.max(0, tela - 1)));
+    });
+
+    // ── Recomendação: baseada na DOR principal, personalizada pelo negócio ──
+    const PROJETOS = {
+      atrair:    { nome:'Landing Page + Catálogo', desc:'Uma página profissional que apresenta seu negócio e converte visitantes em contatos no WhatsApp.', como:'Você descreve o que vende e a IA monta a página inteira — com fotos, textos e botão de contato. É o primeiro projeto do método.' },
+      organizar: { nome:'CRM simples de clientes', desc:'Um painel para registrar clientes, conversas e próximos passos — sem perder ninguém no meio do caminho.', como:'A IA cria um sistema só seu para organizar contatos e follow-ups, no lugar de anotações soltas.' },
+      orcar:     { nome:'Gerador de Orçamento', desc:'Uma calculadora que monta orçamentos profissionais em segundos e envia direto pro cliente.', como:'Você define seus preços uma vez e a IA cria a ferramenta que gera a proposta pronta para enviar.' },
+      atender:   { nome:'Agendamento + Pós-venda', desc:'Um sistema para organizar horários e acompanhar clientes depois da venda, sem virar bagunça.', como:'A IA monta o fluxo de agendamento e os lembretes — você só acompanha pelo painel.' },
+    };
+    const NEGOCIO_TXT = {
+      loja:'Para a sua loja', servico:'Para o seu serviço', autonomo:'Para o seu trabalho autônomo', equipe:'Para a sua empresa'
+    };
+
+    function montarResultado(){
+      const p = PROJETOS[respostas.dor] || PROJETOS.atrair;
+      document.getElementById('res-personal').textContent = NEGOCIO_TXT[respostas.negocio] || 'Para o seu negócio';
+      document.getElementById('res-nome').innerHTML = 'Você precisa de um<br><em>' + p.nome + '</em>';
+      document.getElementById('res-desc').textContent = p.desc;
+      document.getElementById('res-box').innerHTML = '<strong>Como funciona:</strong> ' + p.como + ' É um dos 12 projetos prontos do método — você cria com IA, sem saber programar.';
+      return p.nome;
+    }
+
+    // ── Formulário (captura + envio) ──
+    const form = document.getElementById('form-diag');
+    const inNome = document.getElementById('nome');
+    const inEmail = document.getElementById('email');
+    const erroEmail = document.getElementById('erro-email');
+    const btnResult = document.getElementById('btn-result');
+
+    const DESCARTAVEIS = new Set(['mailinator.com','guerrillamail.com','tempmail.com','temp-mail.org','yopmail.com','trashmail.com','10minutemail.com','sharklasers.com','throwaway.email','maildrop.cc','getnada.com']);
+    function emailValido(e){
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)) return 'E-mail com formato inválido.';
+      if(DESCARTAVEIS.has(e.split('@')[1].toLowerCase())) return 'Use um e-mail permanente (Gmail, Outlook, etc).';
+      return null;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nome = inNome.value.trim();
+      const email = inEmail.value.trim();
+      inNome.classList.remove('erro'); inEmail.classList.remove('erro'); erroEmail.classList.remove('on');
+      let ok = true;
+      if(!nome){ inNome.classList.add('erro'); ok = false; }
+      const err = emailValido(email);
+      if(err){ inEmail.classList.add('erro'); erroEmail.textContent = err; erroEmail.classList.add('on'); ok = false; }
+      if(!ok) return;
+
+      const projeto = montarResultado();
+      btnResult.disabled = true; btnResult.textContent = 'Calculando…';
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            nome, email,
+            negocio: respostas.negocio, dor: respostas.dor, ferramenta: respostas.ferramenta,
+            projeto_recomendado: projeto,
+            timestamp: new Date().toLocaleString('pt-BR'),
+            origem: 'diagnostico'
+          })
+        });
+      } catch(err){ console.warn('fetch no-cors esperado:', err); }
+
+      if (window.fbq) fbq('track', 'Lead', { content_name: projeto });
+      mostrar(5);
+    });
+
+    // Limpa erro ao digitar
+    [inNome, inEmail].forEach(i => i.addEventListener('input', () => { i.classList.remove('erro'); erroEmail.classList.remove('on'); }));
+  </script>
+</body>
+</html>
